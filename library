@@ -333,7 +333,7 @@ function TypicalLibrary:CreateMain()
     if Guis["2"] then
 
         Guis["2"].Visible = true
-        FadeOut(0.5, Guis["2"], 0)
+        TypicalLibrary:FadeOut(0.5, Guis["2"], 0)
     else
         warn("Guis2 not found. ")
     end
@@ -450,7 +450,7 @@ function TypicalLibrary:CreateMain()
     Guis["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
     Guis["a"]["BackgroundTransparency"] = 1;
 
-    Guis["b2"] = CreateText("USER INFO:", Guis["a"], -236627862, 156, 50)
+    Guis["b2"] = TypicalLibrary:CreateText("USER INFO:", Guis["a"], -236627862, 156, 50)
 
     Guis["c"] = Instance.new("Frame", Guis["b2"]);
     Guis["c"]["BorderSizePixel"] = 0;
@@ -490,7 +490,7 @@ function TypicalLibrary:CreateMain()
     Guis["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
     Guis["10"]["BackgroundTransparency"] = 1;
 
-    Guis["11"] = CreateText("CONSOLE:", Guis["10"], -236627862, 156, 50)
+    Guis["11"] = TypicalLibrary:CreateText("CONSOLE:", Guis["10"], -236627862, 156, 50)
 
     -- StarterGui.ScreenGui.Frame.ScrollingFrame.Tab1.UserConsoleInfo.Frame.Log.Divider
     Guis["12"] = Instance.new("Frame", Guis["11"]);
@@ -550,7 +550,7 @@ function TypicalLibrary:CreateMain()
     Guis["1a"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.85),NumberSequenceKeypoint.new(1.000, 0.85)};
     Guis["1a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(192, 75, 91)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(91, 33, 37))};
 
-    Guis["1c"] = CreateText("UPDATE LOG:", Guis["18"], -236627862, 200, 50)
+    Guis["1c"] = TypicalLibrary:CreateText("UPDATE LOG:", Guis["18"], -236627862, 200, 50)
 
     Guis["1f"] = Instance.new("ScrollingFrame", Guis["18"]);
     Guis["1f"]["Active"] = true;
