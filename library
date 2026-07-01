@@ -7,12 +7,6 @@ local UIS = game:GetService("UserInputService")
 local VIM = game:GetService("VirtualInputManager")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local HttpService = game:GetService("HttpService")
-local Device
-if UIS.TouchEnabled == true and UIS.KeyboardEnabled == false then
-    Device = "Mobile"
-else
-    Device = "PC"
-end
 local TypicalLibrary = {}
 
 local Presets = {}
@@ -953,6 +947,7 @@ function TypicalLibrary:CreateInner(parent, destroy, textt, textt2)
             main = parent:FindFirstChild("Main")
             if not main then return end
             
+            box = main:FindFirstChild("Frame"):FindFirstChild("TextBox")
             text = main:FindFirstChild("Frame") and main.Frame:FindFirstChild("TextLabel")
             shadow = parent:FindFirstChild("Shadow")
             Close = main:FindFirstChild("Close")
