@@ -470,6 +470,8 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
         if callback then callback(displayValue) end
     end
 
+	print("hui")
+
     update(TypicalLibrary.Settings[type] or min)
 
     local holding = false
