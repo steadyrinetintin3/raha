@@ -965,6 +965,9 @@ function TypicalLibrary:CreateInner(parent, destroy, textt, textt2)
                 game.Lighting.Blur.Size = 5
             end
 
+            TypicalLibrary:FadeOut(0.25, box, 1)
+            TypicalLibrary:FadeOut(0.25, box.Noice, 1)
+            TypicalLibrary:FadeOut(0.25, box.Frame.UIStroke, 1)
             TypicalLibrary:FadeOut(0.25, text, 1)
             TypicalLibrary:FadeOut(0.25, text.Divider, 1)
             TypicalLibrary:FadeOut(0.25, btn2.UIStroke, 1)
