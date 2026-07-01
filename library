@@ -19,6 +19,11 @@ local Presets = {}
 
 local GuiName = "Beh"
 
+local Settings = {
+    WalkSpeed = 10,
+    JumpPower = 0
+}
+
 local function GetPlayer(character)
     Character = character
     Humanoid = Character:WaitForChild("Humanoid")
