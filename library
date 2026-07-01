@@ -1313,6 +1313,44 @@ if authenticated then
     TypicalLibrary:CreateMain()
 end
 
+function TypicalLibrary:CreateSwitchButton(inner)
+    Guis[inner] = Instance.new("TextButton", Guis["TabHolder"]);
+    Guis[inner]["TextWrapped"] = true;
+    Guis[inner]["TextStrokeTransparency"] = 0.8;
+    Guis[inner]["RichText"] = true;
+    Guis[inner]["BorderSizePixel"] = 0;
+    Guis[inner]["TextStrokeColor3"] = Color3.fromRGB(101, 0, 0);
+    Guis[inner]["TextSize"] = 18;
+    Guis[inner]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+    Guis[inner]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+    Guis[inner]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+    Guis[inner]["ZIndex"] = 100;
+    Guis[inner]["BackgroundTransparency"] = 1;
+    Guis[inner]["Size"] = UDim2.new(0, 65, 0, 35);
+    Guis[inner]["LayoutOrder"] = 5;
+    Guis[inner]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+    Guis[inner]["Text"] = inner;
+    Guis[inner]["Position"] = UDim2.new(0.17, 0, 0.045, 0);
+    Guis[inner]["Name"] = "Button";
+
+    Guis[inner .. "Cover"] = Instance.new("Frame", Guis[inner]);
+    Guis[inner .. "Cover"]["BackgroundTransparency"] = 1;
+    Guis[inner .. "Cover"]["BorderSizePixel"] = 0;
+    Guis[inner .. "Cover"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+    Guis[inner .. "Cover"]["Size"] = UDim2.new(0, 65, 0, 35);
+    Guis[inner .. "Cover"]["Position"] = UDim2.new(-0.00667, 0, -0.00286, 0);
+    Guis[inner .. "Cover"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+    Guis[inner .. "Cover"]["Name"] = inner .. "Cover";
+
+    Guis["2"] = Instance.new("UICorner", Guis[inner .. "Cover"]);
+
+    Guis["22"] = Instance.new("UIGradient", Guis[inner .. "Cover"]);
+    Guis["32"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.85),NumberSequenceKeypoint.new(1.000, 0.85)};
+    Guis["231"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(192, 75, 91)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(91, 33, 37))};
+end
+
+TypicalLibrary:CreateSwitchButton("Main")
+
 function TypicalLibrary:CheckAuth()
     if authenticated == true then
         return true
