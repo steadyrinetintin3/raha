@@ -1386,7 +1386,7 @@ function TypicalLibrary:CreateToggle(inner, Parent, Order, SizeX, TextSize, Text
 
     savedTabStates[Noice] = {BackgroundTransparency = 1, ImageTransparency = 0.5}
 
-    function TypicalLibrary:Update(state)
+    local function Update(state)
         local isCurrentlyOn = (Btn.Position.X.Offset ~= 0)
         if state ~= isCurrentlyOn then
             if state then
@@ -1402,7 +1402,7 @@ function TypicalLibrary:CreateToggle(inner, Parent, Order, SizeX, TextSize, Text
 
     Btn.Activated:Connect(function()
         local newState = (Btn.Position.X.Offset == 0)
-        TypicalLibrary:Update(newState)
+        Update(newState)
     end)
 
     if name then
