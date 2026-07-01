@@ -453,7 +453,7 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
 
     local function update(value)
         local displayValue = math.floor(value)
-        Settings[type] = displayValue
+        TypicalLibrary.Settings[type] = displayValue
         
         local pct = (value - min) / (max - min)
         pct = math.clamp(pct, 0, 1)
@@ -470,7 +470,7 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
         if callback then callback(displayValue) end
     end
 
-    update(Settings[type] or min)
+    update(TypicalLibrary.Settings[type] or min)
 
     local holding = false
     Log.InputBegan:Connect(function(input)
