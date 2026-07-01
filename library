@@ -13,7 +13,7 @@ local Presets = {}
 
 local GuiName = "Beh"
 
-local Settings = {
+TypicalLibrary.Settings = {
     WalkSpeed = 10,
     JumpPower = 0
 }
