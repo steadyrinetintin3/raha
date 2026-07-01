@@ -1351,7 +1351,7 @@ function TypicalLibrary:CreateSwitchButton(inner)
     return Guis[inner]
 end
 
-TypicalLibrary:CreateSwitchButton([[MAIN]])
+TypicalLibrary.MainBtn = TypicalLibrary:CreateSwitchButton([[MAIN]])
 
 function TypicalLibrary:CheckAuth()
     if authenticated == true then
