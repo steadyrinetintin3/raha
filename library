@@ -1391,10 +1391,10 @@ function TypicalLibrary:CreateToggle(inner, Parent, Order, SizeX, TextSize, Text
         if state ~= isCurrentlyOn then
             if state then
                 Btn.BackgroundColor3 = Color3.fromRGB(46, 117, 89)
-                Tween(0.25, {Position = UDim2.new(0, sizeX / 2, 0, 0)}, Btn)
+                TypicalLibrary:Tween(0.25, {Position = UDim2.new(0, sizeX / 2, 0, 0)}, Btn)
             else
                 Btn.BackgroundColor3 = Color3.fromRGB(81, 32, 37)
-                Tween(0.25, {Position = UDim2.new(0, 0, 0, 0)}, Btn)
+                TypicalLibrary:Tween(0.25, {Position = UDim2.new(0, 0, 0, 0)}, Btn)
             end
         end
         if callback then callback(state) end
