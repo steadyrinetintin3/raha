@@ -1208,7 +1208,6 @@ function TypicalLibrary:CreateMain()
     Guis["f"]["SortOrder"] = "LayoutOrder"
     Guis["f"]["Padding"] = UDim.new(0, 10);
 
-    -- StarterGui.ScreenGui.Frame.ScrollingFrame.Tab1.UserConsoleInfo.Frame
     Guis["10"] = Instance.new("Frame", Guis["6"]);
     Guis["10"]["BorderSizePixel"] = 0;
     Guis["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
@@ -1386,27 +1385,29 @@ function TypicalLibrary:CreateToggle(inner, Parent, Order, SizeX, TextSize, Text
 
     savedTabStates[Noice] = {BackgroundTransparency = 1, ImageTransparency = 0.5}
 
+    local isEnabled = false
+
     local function Update(state)
-        local isCurrentlyOn = (Btn.Position.X.Offset ~= 0)
-        if state ~= isCurrentlyOn then
-            if state then
-                Btn.BackgroundColor3 = Color3.fromRGB(46, 117, 89)
-                TypicalLibrary:Tween(0.25, {Position = UDim2.new(0, sizeX / 2, 0, 0)}, Btn)
-            else
-                Btn.BackgroundColor3 = Color3.fromRGB(81, 32, 37)
-                TypicalLibrary:Tween(0.25, {Position = UDim2.new(0, 0, 0, 0)}, Btn)
-            end
+        isEnabled = state
+        if isEnabled then
+            Btn.BackgroundColor3 = Color3.fromRGB(46, 117, 89)
+            TypicalLibrary:Tween(0.25, {Position = UDim2.new(0, sizeX / 2, 0, 0)}, Btn)
+        else
+            Btn.BackgroundColor3 = Color3.fromRGB(81, 32, 37)
+            TypicalLibrary:Tween(0.25, {Position = UDim2.new(0, 0, 0, 0)}, Btn)
         end
-        if callback then callback(state) end
+        if callback then callback(isEnabled) end
     end
 
     Btn.Activated:Connect(function()
-        local newState = (Btn.Position.X.Offset == 0)
-        Update(newState)
+        Update(not isEnabled)
     end)
 
     if name then
-        ToggleButtons[name] = {Update = Update}
+        ToggleButtons[name] = {
+            Update = Update,
+            GetState = function() return isEnabled end
+        }
     end
 
     local BtnCorner = Instance.new("UICorner", Btn)
