@@ -1436,7 +1436,7 @@ function TypicalLibrary:CreateMobileButton(inner, Parent, Order, SizeX, name)
     MainStroke.ApplyStrokeMode = "Border"
     MainStroke.Transparency = 1
     if visible then
-        FadeOut(0.25, MainStroke, 0)
+        TypicalLibrary:(0.25, MainStroke, 0)
     end
 
     Noice3 = Instance.new("ImageLabel", Log)
@@ -1447,7 +1447,7 @@ function TypicalLibrary:CreateMobileButton(inner, Parent, Order, SizeX, name)
     Noice3.BackgroundTransparency = 1
     local NoiceCorner = Instance.new("UICorner", Noice3)
     if visible then
-        FadeOut(0.25, Noice3, 0.5)
+        TypicalLibrary:(0.25, Noice3, 0.5)
     end
 
     local UICornerLog = Instance.new("UICorner")
