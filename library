@@ -426,7 +426,7 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
     Log.Parent = Parent
     Log.AutomaticSize = Enum.AutomaticSize.Y
     Log.Size = UDim2.new(0, SizeX, 0, 28)
-    Log.Name = type
+    Log.Name = type .. "_Slider"
 
     local UICornerLog = Instance.new("UICorner")
     UICornerLog.Parent = Log
@@ -1536,4 +1536,3 @@ function TypicalLibrary:GuideButton(which, cover, tab)
 end
 
 return TypicalLibrary, Guis
-
