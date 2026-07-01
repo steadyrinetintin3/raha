@@ -1347,6 +1347,8 @@ function TypicalLibrary:CreateSwitchButton(inner)
     Guis["22"] = Instance.new("UIGradient", Guis[inner .. "Cover"]);
     Guis["22"]["Transparency"] = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.85),NumberSequenceKeypoint.new(1.000, 0.85)};
     Guis["22"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(192, 75, 91)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(91, 33, 37))};
+
+    return Guis[inner]
 end
 
 TypicalLibrary:CreateSwitchButton([[MAIN]])
