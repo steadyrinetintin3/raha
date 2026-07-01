@@ -965,9 +965,15 @@ function TypicalLibrary:CreateInner(parent, destroy, textt, textt2)
                 game.Lighting.Blur.Size = 5
             end
 
-            TypicalLibrary:FadeOut(0.25, box, 1)
-            TypicalLibrary:FadeOut(0.25, box.Noice, 1)
-            TypicalLibrary:FadeOut(0.25, box.Frame.UIStroke, 1)
+            task.spawn(function()
+                TypicalLibrary:FadeOut(0.25, box, 1)
+            end)
+            task.spawn(function()
+                TypicalLibrary:FadeOut(0.25, box.Noice, 1)
+            end)
+            task.spawn(function()
+                TypicalLibrary:FadeOut(0.25, box.Frame.UIStroke, 1)
+            end)
             TypicalLibrary:FadeOut(0.25, text, 1)
             TypicalLibrary:FadeOut(0.25, text.Divider, 1)
             TypicalLibrary:FadeOut(0.25, btn2.UIStroke, 1)
@@ -1396,7 +1402,7 @@ function TypicalLibrary:CreateToggle(inner, Parent, Order, SizeX, TextSize, Text
 
     Btn.Activated:Connect(function()
         local newState = (Btn.Position.X.Offset == 0)
-        Update(newState)
+        TypicalLibrary:Update(newState)
     end)
 
     if name then
