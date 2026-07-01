@@ -1535,5 +1535,5 @@ function TypicalLibrary:GuideButton(which, cover, tab)
     end)
 end
 
-return TypicalLibrary
+return TypicalLibrary, Guis
 
