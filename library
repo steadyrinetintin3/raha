@@ -452,8 +452,11 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
     SliderStroke.Thickness = 2
 
     local function update(value)
-        local displayValue = math.floor(value)
-        TypicalLibrary.Settings[type] = displayValue
+       local displayValue = math.floor(value)
+    
+        if TypicalLibrary.Settings then
+            TypicalLibrary.Settings[type] = displayValue
+        end
         
         local pct = (value - min) / (max - min)
         pct = math.clamp(pct, 0, 1)
@@ -469,8 +472,6 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
         
         if callback then callback(displayValue) end
     end
-
-	print("hui")
 
     update(TypicalLibrary.Settings[type] or min)
 
