@@ -9,8 +9,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local HttpService = game:GetService("HttpService")
 local TypicalLibrary = {}
 
-local Presets = {}
-
 local GuiName = "Beh"
 
 TypicalLibrary.Settings = {
