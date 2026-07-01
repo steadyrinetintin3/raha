@@ -1328,6 +1328,12 @@ end
 
 local ToggleButtons = {}
 
+function TypicalLibrary:Tween(duration, properties, who)
+    local info = TweenInfo.new(duration, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+    local tween = TweenService:Create(who, info, properties)
+    tween:Play()
+end
+
 function TypicalLibrary:CreateToggle(inner, Parent, Order, SizeX, TextSize, TextPos, Frame2Size, Frame2Pos, moveback, name, callback)
     if not SizeX then SizeX = 185 end
     if not TextSize then TextSize = 100 end
@@ -1379,12 +1385,6 @@ function TypicalLibrary:CreateToggle(inner, Parent, Order, SizeX, TextSize, Text
     Btn.Text = ""
 
     savedTabStates[Noice] = {BackgroundTransparency = 1, ImageTransparency = 0.5}
-
-    function TypicalLibrary:Tween(duration, properties, who)
-        local info22 = TweenInfo.new(duration, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
-        local tween22 = TweenService:Create(who, info22, properties)
-        tween22:Play()
-    end
 
     function TypicalLibrary:Update(state)
         local isCurrentlyOn = (Btn.Position.X.Offset ~= 0)
