@@ -1536,3 +1536,4 @@ function TypicalLibrary:GuideButton(which, cover, tab)
 end
 
 return TypicalLibrary
+
