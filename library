@@ -454,7 +454,7 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
     SliderStroke.Color = Color3.fromRGB(255, 255, 255)
     SliderStroke.Thickness = 2
 
-    function TypicalLibrary:update(value)
+    local function update(value)
         local displayValue = math.floor(value)
         Settings[type] = displayValue
         
@@ -473,7 +473,7 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
         if callback then callback(displayValue) end
     end
 
-    TypicalLibrary:update(Settings[type] or min)
+    update(Settings[type] or min)
 
     local holding = false
     Log.InputBegan:Connect(function(input)
@@ -488,7 +488,7 @@ function TypicalLibrary:CreateSlider(inner, Parent, Order, SizeX, TextScaled, mi
             local relativeX = input.Position.X - Log.AbsolutePosition.X
             local pct = math.clamp(relativeX / Log.AbsoluteSize.X, 0, 1)
             local newValue = min + ((max - min) * pct)
-            TypicalLibrary:update(newValue)
+            update(newValue)
         end
     end)
 
